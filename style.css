@@ -1,0 +1,141 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  background-color: #766df8;
+  padding: 20px 0;
+}
+
+.navbar {
+  background-color: transparent;
+}
+
+.nav-link {
+  color: white !important;
+}
+
+.hero-content {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.about {
+  background-color: #f0f5f9;
+  padding: 100px 0;
+}
+
+.services {
+  padding: 100px 0;
+}
+
+.services h2 {
+  color: #007bff;
+}
+
+.portfolio {
+  padding: 100px 0;
+}
+
+.portfolio h2 {
+  color: #007bff;
+}
+
+.contact {
+  background-color: #f0f5f9;
+  padding: 100px 0;
+}
+
+.contact h2 {
+  color: #007bff;
+}
+
+.footer {
+  background-color: #222;
+  color: #8255ec;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #942dfb;
+}
+
+.about-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  animation: moveImage 10s infinite alternate;
+}
+
+@keyframes moveImage {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(20px);
+  }
+}
+
+.create-listing {
+  padding: 100px 0;
+}
+
+.create-listing form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.create-listing h2 {
+  color: #007bff;
+}
+
+.create-listing label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.create-listing input,
+.create-listing textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.create-listing button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.create-listing button:hover {
+  background-color: #0056b3;
+}
