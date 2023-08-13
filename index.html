@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <title>FoodLink</title>
+</head>
+<body>
+  <header class="bg-primary text-white">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+        <a class="navbar-brand" href="#home">
+          <img src="https://www.flaticon.com/free-animated-icon/food-delivery_9820032?term=food&page=1&position=4&origin=search&related_id=9820032" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#portfolio">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="hero-content text-center py-5">
+        <h1>FoodLink</h1>
+        <p> Join us in the fight against hunger and food waste with FoodLink, We are on a mission for a world with zero hunger </p>
+        <a href="#contact" class="btn btn-light btn-lg">Get Started</a>
+      </div>
+    </div>
+  </header>
+  
+  <!-- ... Service Sections code ... -->
+<section id="services" class="services">
+  <div class="container">
+    <h2 class="text-center">How it works</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">🍽️ Donor Listings   </h5>
+            <p class="card-text"> Create a detailed listings of the food items you're eager to donate. Include specifics like type, quantity, expiry date, dietary restrictions, and allergen information.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">🏢 Local Charities Dashboard</h5>
+            <p class="card-text">Our user-friendly interface offers sorting and filtering options, ensuring that every donation finds its purpose.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">🚚 Scheduling Pickups</h5>
+            <p class="card-text">Donors can conveniently schedule pickups for their donations, while local charities can confirm schedules for streamlined coordination.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  </header>
+  
+  <section class="create-listing">
+    <div class="container">
+      <h2>Create a Donation Listing</h2>
+      <form id="listing-form">
+        <label for="food-type">Food Type:</label>
+        <input type="text" id="food-type" name="food-type" required>
+        
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" required>
+        
+        <label for="expiry-date">Expiry Date:</label>
+        <input type="date" id="expiry-date" name="expiry-date" required>
+        
+        <label for="dietary-restrictions">Dietary Restrictions:</label>
+        <input type="text" id="dietary-restrictions" name="dietary-restrictions">
+        
+        <label for="allergen-info">Allergen Information:</label>
+        <textarea id="allergen-info" name="allergen-info"></textarea>
+        
+        <button type="submit">Submit Listing</button>
+      </form>
+    </div>
+  </section>
+      <div class="col-md-6">
+        <h2>🌟 Together, We Make an Impact</h2>
+        <p>Your donation is more than just food – it's hope, nourishment, and empowerment. By donating through FoodLink, you're joining a global movement towards a world without hunger and food waste.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>
