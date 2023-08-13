@@ -1,73 +1,58 @@
-const mongoose = require('mongoose')
-const User = require('../models/userModel');
-const getToken = require('../utils/jwtToken')
+const mongoose = require("mongoose");
+const User = require("../models/user");
+const getToken = require("../utils/jwtToken");
 
+exports.registerUser = async (req, res) => {
+  const { name, email, password } = req.body;
 
-// create and register user
-exports.registerUser = async (req,res)=>{
-    const {name,email,password} = req.body;
+  const user = await User.create({
+    name,
+    email,
+    password,
+  });
 
-    // create user
-    const user = await User.create({
-        name,
-        email,
-        password
-    })
+  // set the cookie and send response
+  getToken(user, 201, res);
+  console.log("User registered successfully");
+};
 
-    // set the cookie and send response
-    getToken(user,201,res);
-    console.log('user registered successfully');
-}
+exports.loginUser = async (req, res, next) => {
+  const { email, password } = req.body;
 
+  // check if email and password are entered
+  if (!email || !password) {
+    return next(new Error("Please enter email and password"));
+  }
 
-// user login
-exports.loginUser = async (req,res,next)=>{
-    const {email,password} = req.body;
+  // find user by email and select the password field
+  const user = await User.findOne({ email }).select("password");
 
-    // check: is email and password are enterd 
-    if(!email && !password)
-    {
-        return next(new Error("Please Enter Email and Password"))
-    }
+  if (!user) {
+    return next(new Error("Invalid email or password"));
+  }
 
-    // if email matched to db, then select the password for that particular email
-    const user = await User.findOne({email}).select("password");
+  // check if entered password matches the password in the database
+  const isPasswordMatched = await user.comparePassword(password);
 
-    // if enterd email is not present in the db
-    if(!user)
-    {
-        return next(new Error("Invalid Email or Password"))
-    }
+  if (!isPasswordMatched) {
+    return next(new Error("Invalid email or password"));
+  }
 
-    // check: entered password matched to the password in the db
-    const isPasswordMatched = user.comparePassword(password);
+  // get jwt token and save it to cookie for future use
+  getToken(user, 201, res);
+};
 
-    // if password not matched
-    if(!isPasswordMatched)
-    {
-        return next(new Error("Invalid Email or Password"));
-    }
+exports.logoutUser = async (req, res) => {
+  // delete the token from cookie
+  res.cookie("token", null, {
+    expires: new Date(Date.now()),
+    httpOnly: true,
+  });
 
-    // get jwt token and save it to cookie for furture use
-    getToken(user,201,res);
-    console.log('login successful');
-}
+  console.log("User logged out successfully");
 
-
-// logout user
-exports.logoutUser = async(req,res)=>{
-    
-    // delete the token from cookie
-    res.cookie("token",null,{
-        expires:new Date(Date.now()),
-        httpOnly:true
-    })
-    
-    res.status(201)
-        .json({
-            success:true,
-            message:"user logged out successfully"
-        })
-        
-    console.log('user logged out successfully')
-}
+  return res.status(201).json({
+    success: true,
+    message: "User logged out successfully",
+  });
+};
